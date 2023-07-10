@@ -11,6 +11,10 @@
 		EE68C2742A5840B600CB7926 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE68C2732A5840B600CB7926 /* ContentView.swift */; };
 		EE68C2762A5840B700CB7926 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE68C2752A5840B700CB7926 /* Assets.xcassets */; };
 		EE68C2792A5840B700CB7926 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE68C2782A5840B700CB7926 /* Preview Assets.xcassets */; };
+		EE68C2802A5C524700CB7926 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE68C27F2A5C524700CB7926 /* Onboarding.swift */; };
+		EE68C2822A5C57C900CB7926 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE68C2812A5C57C900CB7926 /* Home.swift */; };
+		EE68C2842A5C57FF00CB7926 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE68C2832A5C57FF00CB7926 /* Menu.swift */; };
+		EE68C2882A5C5E5200CB7926 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE68C2872A5C5E5200CB7926 /* UserProfile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,10 @@
 		EE68C2732A5840B600CB7926 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EE68C2752A5840B700CB7926 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE68C2782A5840B700CB7926 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EE68C27F2A5C524700CB7926 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		EE68C2812A5C57C900CB7926 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		EE68C2832A5C57FF00CB7926 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		EE68C2872A5C5E5200CB7926 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +61,10 @@
 			children = (
 				EE68C2712A5840B600CB7926 /* LittleLemonApp.swift */,
 				EE68C2732A5840B600CB7926 /* ContentView.swift */,
+				EE68C27F2A5C524700CB7926 /* Onboarding.swift */,
+				EE68C2812A5C57C900CB7926 /* Home.swift */,
+				EE68C2832A5C57FF00CB7926 /* Menu.swift */,
+				EE68C2872A5C5E5200CB7926 /* UserProfile.swift */,
 				EE68C2752A5840B700CB7926 /* Assets.xcassets */,
 				EE68C2772A5840B700CB7926 /* Preview Content */,
 			);
@@ -137,8 +149,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE68C2802A5C524700CB7926 /* Onboarding.swift in Sources */,
 				EE68C2742A5840B600CB7926 /* ContentView.swift in Sources */,
+				EE68C2882A5C5E5200CB7926 /* UserProfile.swift in Sources */,
+				EE68C2822A5C57C900CB7926 /* Home.swift in Sources */,
 				EE68C2722A5840B600CB7926 /* LittleLemonApp.swift in Sources */,
+				EE68C2842A5C57FF00CB7926 /* Menu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
