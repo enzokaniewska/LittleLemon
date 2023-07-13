@@ -19,18 +19,42 @@ struct Onboarding: View {
     var body: some View {
         
         NavigationView {
-            VStack(spacing: 30){
+            VStack(spacing: 20){
                 
                 NavigationLink(destination: Home(), isActive: $isLoggedIn) {
                     EmptyView()
                 }
                 
+                Text("Welcome to little lemon!")
+                    .font(.title2)
+                    .bold()
+                    
+                Image("Logo")
+                    .padding(.bottom)
                 Group{
                     TextField("First Name", text: $firstName)
+                        .overlay(alignment: .bottom){
+                            Rectangle()
+                                .frame(height: 1)
+                                .foregroundColor(Color("Primary1").opacity(0.5))
+                        }
                     
                     TextField("Last Name", text: $lastName)
+                        .overlay(alignment: .bottom){
+                            Rectangle()
+                                .frame(height: 1)
+                                .foregroundColor(Color("Primary1").opacity(0.5))
+                        }
+                    
                     
                     TextField("Email", text: $email)
+                        .overlay(alignment: .bottom){
+                            Rectangle()
+                                .frame(height: 1)
+                                .foregroundColor(Color("Primary1").opacity(0.5))
+                            
+                        }
+                    
                 }
                 
                 
@@ -49,7 +73,7 @@ struct Onboarding: View {
                         .padding(.horizontal, 30)
                         .padding(.vertical, 10)
                         .labelStyle(.titleOnly)
-                        .background(.blue)
+                        .background(Color("Primary1"))
                         .tint(.white)
                         .font(.title2)
                         .cornerRadius(20)
@@ -64,6 +88,8 @@ struct Onboarding: View {
                     isLoggedIn = true
                 }
             }
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("Register")
         }
     }
 }

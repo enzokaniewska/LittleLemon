@@ -17,27 +17,59 @@ struct UserProfile: View {
     
     var body: some View {
         
-        VStack(spacing: 20){
+        VStack(alignment: .leading, spacing: 20){
             
             Text("Personal information")
-                .font(.headline)
+                .font(.title2)
         
-            Image("profile-image-placeholder")
-            
-            Text(firstName ?? "N/A")
-            
-            Text(lastName ?? "N/A")
-            
-            Text(email ?? "N/A")
-            
-            Button("Logout"){
-                UserDefaults.standard.set(false, forKey: UDKeys.isLoggedInKey)
-                presentation.wrappedValue.dismiss()
+            HStack {
+                Spacer()
+                Image("profile-image-placeholder")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 150)
+                Spacer()
             }
             
+            Group{
+                Text("first name")
+             
+                Text(firstName ?? "N/A")
+                    .font(.title3)
+                    
+                Divider()
+                
+                Text("last name")
+           
+                Text(lastName ?? "N/A")
+                    .font(.title3)
+          
+                Divider()
+            
+                Text("email")
+                        
+                Text(email ?? "N/A")
+                    .font(.title3)
+            }
+            .font(.subheadline)
+           
+            
+            HStack {
+                Spacer()
+                Button("Logout"){
+                    UserDefaults.standard.set(false, forKey: UDKeys.isLoggedInKey)
+                    presentation.wrappedValue.dismiss()
+                }
+                .buttonStyle(.bordered)
+                .tint(.red)
+                .padding(.top, 30)
+                
+                Spacer()
+            }
             Spacer()
             
         }
+        .padding(.horizontal)
     }
 }
 

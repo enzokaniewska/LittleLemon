@@ -25,6 +25,21 @@ struct Home: View {
                 
         }
         .navigationBarBackButtonHidden(true)
+        .toolbar{
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Image("profile-image-placeholder")
+                    .resizable()
+                    .frame(width: 40, height: 40)
+                    .clipShape(Circle())
+            }
+            ToolbarItem(placement: .principal) {
+                Image("Logo")
+            }
+        }
+        .toolbarBackground(.white, for: .navigationBar)
+        .toolbarBackground(.visible, for: .navigationBar)
+        
+       
     }
 }
 
