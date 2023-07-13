@@ -9,54 +9,32 @@ import SwiftUI
 
 struct Menu: View {
     
+    @State var selectedCategory = ""
     @State var menuList = MenuList(menu: [])
     @State var searchText = ""
     @Environment(\.managedObjectContext) private var viewContext
     
     var body: some View {
+        
         VStack(alignment: .leading, spacing: 0){
             
-            VStack {
-                HStack(alignment: .top){
-                    
-                    VStack(alignment: .leading, spacing: 5){
-                       
-                        Text("Little Lemon")
-                            .font(.largeTitle)
-                            .bold()
-                            .foregroundColor(Color("Primary2"))
-                        Text("Chicago")
-                            .foregroundColor(.white)
-                            .font(.title2)
-                        Text("We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.")
-                            .foregroundColor(.white)
-                        
-                    }
-                    
-                    Image("Hero image")
-                        .resizable()
-                        .frame(width: 120, height:160)
-                        .aspectRatio(contentMode: .fill)
-                        .cornerRadius(8)
-                        
-                    
-                    
-                }
-                .frame(minWidth: 0, maxWidth: .infinity)
-                
-                
-                
-                TextField("Search", text: $searchText)
-                    .padding(.vertical, 10)
-                    .padding(.horizontal, 5)
-                    .background(.white)
-                    .cornerRadius(8)
-                    
-            }
-            .padding(10)
-            .padding(.bottom, 5)
-            .background(Color("Primary1"))
+            HeroView(searchText: $searchText)
             
+            HStack{
+                Text("ORDER FOR DELIVERY:")
+                    .padding(.horizontal)
+                    .font(.headline)
+                
+                Image("Delivery van")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 40, height: 40)
+                
+            }
+            .padding(.top, 5)
+    
+            CategoryRow(selectedCategory: $selectedCategory)
+                .padding(.bottom)
             
             FetchedObjects(
                 predicate: buildPredicate(),
@@ -65,15 +43,19 @@ struct Menu: View {
                 List{
                     ForEach(dishes){ dish in
                         MenuItemView(dish: dish)
+                            
                     }
                 }
-                .listStyle(.plain)
-            }
+                .listStyle(.inset)
+     
                 
             }
+                
+        }
         .onAppear{
             getMenuData()
         }
+        
     }
     
     func getMenuData(){
@@ -87,6 +69,7 @@ struct Menu: View {
                 guard let menuList = menuList else { return }
                 
                 for item in menuList.menu{
+                   
                     let dish = Dish(context: viewContext)
                     dish.title = item.title
                     dish.desc = item.description
@@ -119,5 +102,57 @@ struct Menu: View {
 struct Menu_Previews: PreviewProvider {
     static var previews: some View {
         Menu()
+    }
+}
+
+struct HeroView: View {
+    
+    @Binding var searchText:String
+    
+    var body: some View {
+        
+        VStack(alignment: .leading, spacing: 0){
+            
+            Text("Little Lemon")
+                .font(Font.custom("MarkaziText-Regular", size: 64))
+                .foregroundColor(Color("Primary2"))
+            
+            HStack(alignment: .top){
+                
+                VStack(alignment: .leading, spacing: 5){
+                    
+                    
+                    Text("Chicago")
+                        .foregroundColor(.white)
+                        .font(.title2)
+                        .bold()
+                    Text("We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.")
+                        .foregroundColor(.white)
+                    
+                }
+                
+                Image("Hero image")
+                    .resizable()
+                    .frame(width: 120, height:140)
+                    .aspectRatio(contentMode: .fill)
+                    .cornerRadius(8)
+                
+            }
+            .frame(minWidth: 0, maxWidth: .infinity)
+          
+            
+            
+            TextField("Search", text: $searchText)
+                .padding(.vertical, 7)
+                .padding(.horizontal, 5)
+                .background(.white)
+                .cornerRadius(8)
+                .padding(.vertical, 8)
+                .padding(.horizontal, 5)
+            
+        }
+        .padding(10)
+        .padding(.bottom, 5)
+        .background(Color("Primary1"))
     }
 }
